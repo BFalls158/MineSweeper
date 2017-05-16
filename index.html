@@ -20,7 +20,8 @@
 		                <img ng-if="!cell.isRevealed && !cell.isFlagged" src="images/covered.png"/>
 		                <img ng-if="!cell.isRevealed && cell.isFlagged" src="images/flag-mine.png"/>
 		                <img ng-if="cell.isRevealed && cell.isFlagged && !cell.isBomb && !cell.isClicked" src="images/flag-mine-wrong.png"/>
-		                <img ng-if="cell.isRevealed && cell.isBomb && !cell.isFlagged" src="images/mine.png"/>
+		                <img ng-if="cell.isRevealed && cell.isBomb && !cell.isFlagged && !cell.isClicked" src="images/mine.png"/>
+		                <img ng-if="cell.isRevealed && cell.isBomb && cell.isClicked" src="images/mine-wrong.png">
 		                <img ng-if="cell.isRevealed && cell.contents == 0 && !cell.isBomb && !cell.isFlagged" src="images/empty.png"/>
 		                <img ng-if="cell.isRevealed && cell.contents == 1 && !cell.isBomb && !cell.isFlagged" src="images/number-1.png"/>
 		                <img ng-if="cell.isRevealed && cell.contents == 2 && !cell.isBomb && !cell.isFlagged" src="images/number-2.png"/>

@@ -163,7 +163,6 @@ angular.module('app')
 		function chainEmpties(minefield, row, col) {
 
 			var cell = getCell(minefield, row, col);
-			cell.isFlagged = false;
 			if(cell.contents != 0) {
 				return;
 			}
@@ -174,6 +173,7 @@ angular.module('app')
 						var thisCell = getCell(minefield, row - 1, col - 1);
 						//gets the cell above and to left
 						if (!thisCell.isRevealed && !thisCell.isBomb) {
+							thisCell.isFlagged = false;
 							thisCell.isRevealed = true;
 							if(thisCell.contents == 0) {
 								chainEmpties(minefield, row - 1, col - 1);
@@ -184,17 +184,19 @@ angular.module('app')
 					// get spot above
 					var thisCell = getCell(minefield, row - 1, col);
 					if (!thisCell.isRevealed && !thisCell.isBomb) {
-							thisCell.isRevealed = true;
-							if(thisCell.contents == 0) {
-								chainEmpties(minefield, row - 1, col);
-							}
+						thisCell.isFlagged = false;
+						thisCell.isRevealed = true;
+						if(thisCell.contents == 0) {
+							chainEmpties(minefield, row - 1, col);
 						}
+					}
 
 					// make sure isn't last column
 					if(col < 19) {
 						// above and right
 						var thisCell = getCell(minefield, row - 1, col + 1);
 						if (!thisCell.isRevealed && !thisCell.isBomb) {
+							thisCell.isFlagged = false;
 							thisCell.isRevealed = true;
 							if(thisCell.contents == 0) {
 								chainEmpties(minefield, row - 1, col + 1);
@@ -207,11 +209,12 @@ angular.module('app')
 				if(col > 0) {
 					var thisCell = getCell(minefield, row, col - 1);
 					if (!thisCell.isRevealed && !thisCell.isBomb) {
-							thisCell.isRevealed = true;
-							if(thisCell.contents == 0) {
-								chainEmpties(minefield, row, col - 1);
-							}
+						thisCell.isFlagged = false;
+						thisCell.isRevealed = true;
+						if(thisCell.contents == 0) {
+							chainEmpties(minefield, row, col - 1);
 						}
+					}
 				}
 
 				//col !== last
@@ -219,11 +222,12 @@ angular.module('app')
 					// get col to right
 					var thisCell = getCell(minefield, row, col + 1);
 					if (!thisCell.isRevealed && !thisCell.isBomb) {
-							thisCell.isRevealed = true;
-							if(thisCell.contents == 0) {
-								chainEmpties(minefield, row, col + 1);
-							}
+						thisCell.isFlagged = false;
+						thisCell.isRevealed = true;
+						if(thisCell.contents == 0) {
+							chainEmpties(minefield, row, col + 1);
 						}
+					}
 				}
 
 				// check below if isnt last row
@@ -233,6 +237,7 @@ angular.module('app')
 						// down and to the left
 						var thisCell = getCell(minefield, row + 1, col - 1);
 						if (!thisCell.isRevealed && !thisCell.isBomb) {
+							thisCell.isFlagged = false;
 							thisCell.isRevealed = true;
 							if(thisCell.contents == 0) {
 								chainEmpties(minefield, row + 1, col - 1);
@@ -243,17 +248,19 @@ angular.module('app')
 					//spot below
 					var thisCell = getCell(minefield, row + 1, col);
 					if (!thisCell.isRevealed && !thisCell.isBomb) {
-							thisCell.isRevealed = true;
-							if(thisCell.contents == 0) {
-								chainEmpties(minefield, row + 1, col);
-							}
+						thisCell.isFlagged = false;
+						thisCell.isRevealed = true;
+						if(thisCell.contents == 0) {
+							chainEmpties(minefield, row + 1, col);
 						}
+					}
 
 					// check right if !== last col
 					if(col < 19) {
 						//below and right
 						var thisCell = getCell(minefield, row + 1, col + 1);
 						if (!thisCell.isRevealed && !thisCell.isBomb) {
+							thisCell.isFlagged = false;
 							thisCell.isRevealed = true;
 							if(thisCell.contents == 0) {
 								chainEmpties(minefield, row + 1, col + 1);
