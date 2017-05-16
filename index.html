@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTMinesweeperL</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="libs/angular.min.js"></script>
+	<script src="libs/angular-route.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="msController" ng-class="flag ? 'custom' : ''">
+	<h1>Minesweeper by Bryan</h1>
+	<div id="btnDiv">
+		<button type="button" ng-click="newGame()">New Game</button>
+		<br>
+		<img id="flag-toggle" src="images/toggle-flag.png" ng-click="flagToggle()"/>
+	</div>
+		<div>
+		    <table id="grid">
+		        <tr ng-repeat="row in minefield.rows">
+		            <td ng-repeat="cell in row.cells" ng-click="reveal(cell)"/>
+		                <img ng-if="!cell.isRevealed && !cell.isFlagged" src="images/covered.png"/>
+		                <img ng-if="!cell.isRevealed && cell.isFlagged" src="images/flag-mine.png"/>
+		                <img ng-if="cell.isRevealed && cell.isBomb" src="images/mine.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 0 && !cell.isBomb" src="images/empty.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 1 && !cell.isBomb" src="images/number-1.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 2 && !cell.isBomb" src="images/number-2.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 3 && !cell.isBomb" src="images/number-3.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 4 && !cell.isBomb" src="images/number-4.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 5 && !cell.isBomb" src="images/number-5.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 6 && !cell.isBomb" src="images/number-6.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 7 && !cell.isBomb" src="images/number-7.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 8 && !cell.isBomb" src="images/number-8.png"/>
+		            </td>
+		        </tr>
+		    </table>
+		</div>
+	
+	<h2 ng-if="winMessage">You win!!!</h2>
+	<h2 ng-if="loseMessage">You lose!!!</h2>
+
+	<script src="script.js"></script>
+	<script src="msController.js"></script>
+	<script src="msService.js"></script>
+</body>
+</html>
