@@ -21,6 +21,7 @@ angular.module('app')
 		            cell.isRevealed = false;
 		            cell.isBomb = Math.random() < .15;
 		            cell.isFlagged = false;
+		            cell.isClicked = false;
 		            cell.x = i;
 		            cell.y = j;
 		            row.cells.push(cell);
@@ -148,7 +149,11 @@ angular.module('app')
 			for(var y = 0; y < 20; y++) {
 				for(var x = 0; x < 20; x++) {
 					var thisCell = getCell(minefield, x, y);
-					thisCell.isRevealed = true;
+					if(thisCell.isFlagged && thisCell.isBomb) {
+						thisCell.goodFlag = true;
+					} else {
+						thisCell.isRevealed = true;
+					}
 				}
 			}
 		}
@@ -158,6 +163,7 @@ angular.module('app')
 		function chainEmpties(minefield, row, col) {
 
 			var cell = getCell(minefield, row, col);
+			cell.isFlagged = false;
 			if(cell.contents != 0) {
 				return;
 			}

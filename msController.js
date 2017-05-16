@@ -16,6 +16,8 @@ angular.module('app')
 		$scope.reveal = function(cell) {
 			if(!$scope.flag){
 				cell.isRevealed = true;
+				cell.isClicked = true;
+				cell.isFlagged = false;
 				if(cell.isBomb){
 					$scope.loseMessage = true;
 					msService.revealAll($scope.minefield);

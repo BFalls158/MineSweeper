@@ -19,16 +19,17 @@
 		            <td ng-repeat="cell in row.cells" ng-click="reveal(cell)"/>
 		                <img ng-if="!cell.isRevealed && !cell.isFlagged" src="images/covered.png"/>
 		                <img ng-if="!cell.isRevealed && cell.isFlagged" src="images/flag-mine.png"/>
-		                <img ng-if="cell.isRevealed && cell.isBomb" src="images/mine.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 0 && !cell.isBomb" src="images/empty.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 1 && !cell.isBomb" src="images/number-1.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 2 && !cell.isBomb" src="images/number-2.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 3 && !cell.isBomb" src="images/number-3.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 4 && !cell.isBomb" src="images/number-4.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 5 && !cell.isBomb" src="images/number-5.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 6 && !cell.isBomb" src="images/number-6.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 7 && !cell.isBomb" src="images/number-7.png"/>
-		                <img ng-if="cell.isRevealed && cell.contents == 8 && !cell.isBomb" src="images/number-8.png"/>
+		                <img ng-if="cell.isRevealed && cell.isFlagged && !cell.isBomb && !cell.isClicked" src="images/flag-mine-wrong.png"/>
+		                <img ng-if="cell.isRevealed && cell.isBomb && !cell.isFlagged" src="images/mine.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 0 && !cell.isBomb && !cell.isFlagged" src="images/empty.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 1 && !cell.isBomb && !cell.isFlagged" src="images/number-1.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 2 && !cell.isBomb && !cell.isFlagged" src="images/number-2.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 3 && !cell.isBomb && !cell.isFlagged" src="images/number-3.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 4 && !cell.isBomb && !cell.isFlagged" src="images/number-4.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 5 && !cell.isBomb && !cell.isFlagged" src="images/number-5.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 6 && !cell.isBomb && !cell.isFlagged" src="images/number-6.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 7 && !cell.isBomb && !cell.isFlagged" src="images/number-7.png"/>
+		                <img ng-if="cell.isRevealed && cell.contents == 8 && !cell.isBomb && !cell.isFlagged" src="images/number-8.png"/>
 		            </td>
 		        </tr>
 		    </table>
