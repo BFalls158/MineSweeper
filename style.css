@@ -23,7 +23,7 @@ h2 {
 
 #btnDiv {
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 button {
@@ -40,4 +40,9 @@ button {
 
 .custom {
   cursor: url(images/flag-mine.png), auto;
+}
+
+#toggle-div {
+	text-align: center;
+	margin-top: 15px;
 }

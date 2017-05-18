@@ -6,11 +6,9 @@
 	<script src="libs/angular.min.js"></script>
 	<script src="libs/angular-route.min.js"></script>
 </head>
-<body ng-app="app" ng-controller="msController" ng-class="flag ? 'custom' : ''">
+<body ng-app="app" ng-controller="msController" ng-class="flag ? 'custom' : ''" ng-keypress="toggle($event)">
 	<h1>Minesweeper by Bryan</h1>
-	<div id="btnDiv">
-		<button type="button" ng-click="newGame()">New Game</button>
-		<br>
+	<div id="toggle-div">
 		<img id="flag-toggle" src="images/toggle-flag.png" ng-click="flagToggle()"/>
 	</div>
 		<div>
@@ -35,7 +33,9 @@
 		        </tr>
 		    </table>
 		</div>
-	
+	<div id="btnDiv">
+		<button type="button" ng-click="newGame()">New Game</button>
+	</div>
 	<h2 ng-if="winMessage">You win!!!</h2>
 	<h2 ng-if="loseMessage">You lose!!!</h2>
 

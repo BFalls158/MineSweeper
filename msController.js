@@ -42,4 +42,11 @@ angular.module('app')
 			$scope.loseMessage = false;
 			$scope.winMessage = false;
 		}
+
+		$scope.toggle = function(e){
+			var keyCode = e.which || e.keyCode;
+			if (keyCode === 32) {
+				$scope.flagToggle();
+			}
+		}
 	});

@@ -151,7 +151,7 @@ angular.module('app')
 					var thisCell = getCell(minefield, x, y);
 					if(thisCell.isFlagged && thisCell.isBomb) {
 						thisCell.goodFlag = true;
-					} else {
+					} else if (thisCell.isBomb){
 						thisCell.isRevealed = true;
 					}
 				}
