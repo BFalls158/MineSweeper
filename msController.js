@@ -28,11 +28,13 @@ angular.module('app')
 					}
 				}
 			} else {
-				if (!cell.isFlagged){
-					cell.isFlagged = true;
-				} else {
-					cell.isFlagged = false;
-				} 
+				if(!cell.isRevealed) {
+					if (!cell.isFlagged){
+						cell.isFlagged = true;
+					} else {
+						cell.isFlagged = false;
+					}
+				}	 
 			}
 		}
 
